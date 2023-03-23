@@ -35,9 +35,9 @@ public class Foorballmanagement {
 		System.out.print("Football Player Weight : ");
 		double playerWeight1 = input.nextDouble();
 		break;
-	    case 2:
-	    case 3:
-	    case 4:
+	   	case 2:
+	    	case 3:
+	    	case 4:
 	  	System.out.print("Football Player Name : ");
 		String playerName2 = input.next();
 		
