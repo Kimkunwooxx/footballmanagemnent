@@ -32,29 +32,29 @@ public class Foorballmanagement {
 		}
 		
 		}
-
-	}
-	public static void addFootballPlayer() {
-		Scanner input = new Scanner(System.in);
-		System.out.println("Football Player ID Number :");
-		int idNumber = input.nextInt();
-		
-		System.out.print("Football Player Name : ");
-		String playerName1 = input.next();
-		
-		System.out.print("Football Player Age : ");
-		int playerAge1 = input.nextInt();
-		
-		System.out.print("Football Player Nationality : ");
-		String playerNationality1 = input.next();
-		
-		System.out.print("Football Player Height : ");
-		double playerHeight1 = input.nextDouble();
-		
-		System.out.print("Football Player Weight : ");
-		double playerWeight1 = input.nextDouble();
 	}
 	
+	public static void addFootballPlayer() {
+		Scanner input = new Scanner(System.in);
+		System.out.println("Football player ID Number :");
+		int inNumber = input.nextInt();
+		
+		System.out.println("Football Player Name :");
+		String playerName1 = input.next();
+		
+		System.out.println("Football Player Age :");
+		int playerAge1 = input.nextInt();
+		
+		System.out.println("Football Player Nationality :");
+		String playerNationality1 = input.next();
+		
+		System.out.println("Football Player Height :");
+		double playerHeight1 = input.nextDouble();
+		
+		System.out.println("Football Player Weight :");
+		double playerWeight1 = input.nextDouble();
+	}
+
 	public static void deleteFootballPlyaer() {
 		Scanner input = new Scanner(System.in);
 		System.out.println("Football player ID Number :");
