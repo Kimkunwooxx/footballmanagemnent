@@ -18,8 +18,27 @@ public class Foorballmanagement {
 		System.out.println("Select one number between 1-6 : ");
 		
 		num = input.nextInt();
-		switch(num) {
-		case 1:
+		if (num ==1) {
+			addFootballPlayer();
+		}
+		if (num ==2) {
+			deleteFootballPlyaer();
+		}
+		if (num ==3) {
+			editFootballPlayer();
+		}
+		if (num ==4) {
+			viewFootballPlayer();
+		}
+		
+		}
+
+	}
+	public static void addFootballPlayer() {
+		Scanner input = new Scanner(System.in);
+		System.out.println("Football Player ID Number :");
+		int idNumber = input.nextInt();
+		
 		System.out.print("Football Player Name : ");
 		String playerName1 = input.next();
 		
@@ -34,17 +53,27 @@ public class Foorballmanagement {
 		
 		System.out.print("Football Player Weight : ");
 		double playerWeight1 = input.nextDouble();
-		break;
-	    case 2:
-	    case 3:
-	    case 4:
-	  	System.out.print("Football Player Name : ");
-		String playerName2 = input.next();
-		
-		}
-	
-		}
-
 	}
-
+	
+	public static void deleteFootballPlyaer() {
+		Scanner input = new Scanner(System.in);
+		System.out.println("Football player ID Number :");
+		int inNumber = input.nextInt();
+		
+		System.out.println("Are you sure you want to delete this player?");
+		String answer = input.next();
+		
+	}
+	
+	public static void editFootballPlayer() {
+		Scanner input = new Scanner(System.in);
+		System.out.println("Football player ID Number :");
+		int inNumber = input.nextInt();
+	}
+	
+	public static void viewFootballPlayer(){
+		Scanner input = new Scanner(System.in);
+		System.out.println("Football player ID Number :");
+		int inNumber = input.nextInt();
+	}
 }
