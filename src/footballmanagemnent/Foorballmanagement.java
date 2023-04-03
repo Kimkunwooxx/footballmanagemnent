@@ -60,7 +60,7 @@ public class Foorballmanagement {
 		System.out.println("Football player ID Number :");
 		int inNumber = input.nextInt();
 		
-		System.out.println("Are you sure you want to delete this player?");
+		System.out.println("Do you want to delete this player?");
 		String answer = input.next();
 		
 	}
