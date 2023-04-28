@@ -3,6 +3,9 @@ package footballmanagemnent;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import footballplayer.FootballPlayer;
+import footballplayer.TottenhamPlayer;
+
 public class PlayerManager {
 	//개체
 	ArrayList<FootballPlayer> players = new ArrayList<FootballPlayer>();
@@ -14,25 +17,29 @@ public class PlayerManager {
 	}
 	//선수들의 정보를 입력받는 메소드
 	public void addFootballPlayer() {
-		FootballPlayer playerInformation = new FootballPlayer();
-		System.out.println("Football player ID Number :");
-		playerInformation.id = input.nextInt();
-		
-		System.out.println("Football Player Name :");
-		playerInformation.name = input.next();
-		
-		System.out.println("Football Player Age :");
-		playerInformation.age = input.nextInt();
-		
-		System.out.println("Football Player Nationality :");
-		playerInformation.nationality = input.next();
-		
-		System.out.println("Football Player Height :");
-		playerInformation.height = input.nextDouble();
-		
-		System.out.println("Football Player Weight :");
-		playerInformation.weight = input.nextDouble();
-		players.add(playerInformation);
+		int team = 0;
+		FootballPlayer player;
+		while(team !=1 && team !=2) {
+			System.out.print("1 for Manchester United");
+			System.out.println("\t2 for Tottenham");
+			System.out.println("Select num for Football Team between 1 and 2 :");
+			team = input.nextInt();
+			if(team == 1) {
+				player = new FootballPlayer();
+				player.getUserInput(input);
+				players.add(player);
+				break;
+			}
+			else if(team ==2){
+				player = new TottenhamPlayer();
+				players.add(player);
+				player.getUserInput(input);
+				break;
+			}
+			else {
+				System.out.println("Select num for Football Team between 1 and 2 :");
+			}
+		}
 	}
 
 	//선수를 삭제하는 메소드
@@ -41,7 +48,7 @@ public class PlayerManager {
 		int inNumber = input.nextInt();
 		int index = -1;
 		for (int i=0; i <players.size(); i++) {
-			if (players.get(i).id == inNumber) {
+			if (players.get(i).getId() == inNumber) {
 				index = i;
 				break;
 			}
@@ -61,7 +68,8 @@ public class PlayerManager {
 		System.out.println("Football player ID Number :");
 		int inNumber = input.nextInt();
 		for (int i=0; i <players.size(); i++) {
-			if(players.get(i).id == inNumber) { 
+			FootballPlayer player = players.get(i);
+			if(player.getId() == inNumber) { 
 				int num = -1;
 				while (num != 5) {
 					System.out.println("** Football Plyaer Info Edit Menu **");
@@ -76,27 +84,33 @@ public class PlayerManager {
 					num = input.nextInt();
 					if (num == 1) {
 						System.out.print("Player ID :");
-						players.get(i).id = input.nextInt();
+						int id = input.nextInt();
+						player.setId(id);
 					}
 					else if (num == 2) {
 						System.out.print("Player Name :");
-						players.get(i).name = input.next();
+						String name = input.next();
+						player.setName(name);
 					}
 					else if (num == 3) {
 						System.out.print("Player Age :");
-						players.get(i).age = input.nextInt();
+						int age = input.nextInt();
+						player.setAge(age);
 					}
 					else if (num == 4) {
 						System.out.print("Player Nationality :");
-						players.get(i).nationality = input.next();
+						String nationality = input.next();
+						player.setNationality(nationality);
 					}
 					else if (num == 5) {
 						System.out.print("Player Weight :");
-						players.get(i).weight = input.nextDouble();
+						double weight = input.nextDouble();
+						player.setWeight(weight);
 					}
 					else if (num == 6) {
 						System.out.print("Player Height :");
-						players.get(i).height = input.nextDouble();
+						double height = input.nextDouble();
+						player.setHeight(height);
 					}
 					else {
 						break;
@@ -109,6 +123,7 @@ public class PlayerManager {
 	
 	//현재 저장된 선수들을 출력하는 메소드
 	public void viewFootballPlayers(){
+		System.out.println("# of registered Players :" + players.size());
 		for (int i=0; i <players.size(); i++) {
 			players.get(i).printInfo();
 		}
