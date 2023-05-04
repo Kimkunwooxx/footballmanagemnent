@@ -3,7 +3,9 @@ package footballmanagemnent;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import footballplayer.YouthPlayer;
 import footballplayer.FootballPlayer;
+import footballplayer.FootballTeam;
 import footballplayer.TottenhamPlayer;
 
 public class PlayerManager {
@@ -19,25 +21,36 @@ public class PlayerManager {
 	public void addFootballPlayer() {
 		int team = 0;
 		FootballPlayer player;
-		while(team !=1 && team !=2) {
-			System.out.print("1 for Manchester United");
-			System.out.println("\t2 for Tottenham");
-			System.out.println("Select num for Football Team between 1 and 2 :");
+		while(team !=1 && team !=2 && team != 3) {
+			System.out.println("==============================================");
+			System.out.println("Select 1 for Manchester United");
+			System.out.println("Select 2 for Tottenham");
+			System.out.println("Select 3 for Youth");
+			System.out.println("Select num for Football Team between 1 and 3 :");
+			System.out.println("==============================================");
 			team = input.nextInt();
+			//맨유 선수 선택
 			if(team == 1) {
-				player = new FootballPlayer();
+				player = new FootballPlayer(FootballTeam.ManchesterUnited);
 				player.getUserInput(input);
 				players.add(player);
 				break;
 			}
-			else if(team ==2){
-				player = new TottenhamPlayer();
-				players.add(player);
+			//토트넘 선수 선택
+			else if(team == 2){
+				player = new TottenhamPlayer(FootballTeam.Tottenham);
 				player.getUserInput(input);
+				players.add(player);
 				break;
+			}
+			//유소년 선수 선택
+			else if(team == 3) {
+				player = new YouthPlayer(FootballTeam.Youth);
+				player.getUserInput(input);
+				players.add(player);
 			}
 			else {
-				System.out.println("Select num for Football Team between 1 and 2 :");
+				System.out.println("Select num for Football Team between 1 and 3 :");
 			}
 		}
 	}
@@ -72,7 +85,7 @@ public class PlayerManager {
 			if(player.getId() == inNumber) { 
 				int num = -1;
 				while (num != 5) {
-					System.out.println("** Football Plyaer Info Edit Menu **");
+					System.out.println("*** Football Plyaer Info Edit Menu ***");
 					System.out.println("1. Edit ID");
 					System.out.println("2. Edid Name");
 					System.out.println("3. Edit Age");
@@ -81,6 +94,7 @@ public class PlayerManager {
 					System.out.println("6. Edit Height");
 					System.out.println("7. EXIT");
 					System.out.println("Selet one number between 1 ~ 7");
+					System.out.println("**************************************");
 					num = input.nextInt();
 					if (num == 1) {
 						System.out.print("Player ID :");

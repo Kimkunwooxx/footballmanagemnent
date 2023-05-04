@@ -1,8 +1,9 @@
 package footballplayer;
 
 public enum FootballTeam {
+	Arsenal,
 	ManchesterUnited,
 	Tottenham,
-	Arsenal,
-	Liverpool
+	Liverpool,
+	Youth
 }

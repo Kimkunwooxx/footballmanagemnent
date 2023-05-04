@@ -3,19 +3,20 @@ package footballmanagemnent;
 import java.util.Scanner;
 
 public class MenuManagement {
-	
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		PlayerManager manager = new PlayerManager(input);
 		int num = 0;
 
-		while (num != 5){		
+		while (num != 5){
+		System.out.println("============ MAIN MENU ============");
 		System.out.println("1.Add Football Player");
 		System.out.println("2.Delete Football Player");
 		System.out.println("3.Edit Football Player");
 		System.out.println("4.View Football Players");
 		System.out.println("5.Exit");
 		System.out.println("Select one number between 1-5 : ");
+		System.out.println("===================================");
 		
 		num = input.nextInt();
 		if (num ==1) {

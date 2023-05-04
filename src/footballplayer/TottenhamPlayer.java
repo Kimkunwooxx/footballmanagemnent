@@ -4,6 +4,10 @@ import java.util.Scanner;
 
 public class TottenhamPlayer extends FootballPlayer {
 	
+	public TottenhamPlayer(FootballTeam footballTeam) {
+		super(footballTeam);
+	}
+	
 	public void getUserInput(Scanner input){
 		System.out.println("Football player ID Number :");
 		int id = input.nextInt();

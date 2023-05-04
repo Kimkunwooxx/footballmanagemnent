@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class FootballPlayer {
 	//선수들의 정보
+	protected FootballTeam footballTeam = FootballTeam.ManchesterUnited;
 	protected int id;
 	protected String name;
 	protected int age;
@@ -15,9 +16,18 @@ public class FootballPlayer {
 	public FootballPlayer() {
 	}
 	
-	//constructor
-	public FootballPlayer(int id , 
+	public FootballPlayer(FootballTeam footballTeam) {
+		this.footballTeam = footballTeam;
+	}
+	
+	public FootballPlayer(int id, String name) {
+		this.id = id;
+		this.name = name;
+	}
+	
+	public FootballPlayer(FootballTeam footballTeam, int id , 
 			String name, int age, String nationality, double height, double weight) {
+		this.footballTeam = footballTeam;
 		this.id = id;
 		this.name = name;
 		this.age = age;
@@ -28,11 +38,11 @@ public class FootballPlayer {
 	
 	protected FootballTeam team = FootballTeam.Tottenham;
 	public FootballTeam getTeam() {
-		return team;
+		return footballTeam;
 	}
 
 	public void setTeam(FootballTeam team) {
-		this.team = team;
+		this.footballTeam = team;
 	}
 
 	public int getId() {
@@ -85,6 +95,25 @@ public class FootballPlayer {
 
 	//선수들의 정보를 출력하는 메소드
 	public void printInfo() {
+		String footballTeam1 = "none";
+		switch(this.footballTeam) {
+		case Arsenal :
+			footballTeam1 = "Arsenal";
+			break;
+		case ManchesterUnited :
+			footballTeam1 = "ManchesterUnited";
+			break;
+		case Tottenham :
+			footballTeam1 = "Tottenham";
+			break;
+		case Liverpool :
+			footballTeam1 = "Liverpool";
+			break;
+		case Youth :
+			footballTeam1 = "Youth";
+		default :	
+		}
+		System.out.printf("Football Team : %s\n", footballTeam1);
 		System.out.printf("Player ID: %d\t", id);
 		System.out.printf("Player Name: %s\t", name);
 		System.out.printf("Player Age: %d\n", age);
@@ -94,6 +123,7 @@ public class FootballPlayer {
 		System.out.println();
 
 	}
+	
 	public void getUserInput(Scanner input){
 		System.out.println("Football player ID Number :");
 		int id = input.nextInt();
