@@ -5,5 +5,5 @@ public enum FootballTeam {
 	ManchesterUnited,
 	Tottenham,
 	Liverpool,
-	Youth
+	YouthTeam
 }
