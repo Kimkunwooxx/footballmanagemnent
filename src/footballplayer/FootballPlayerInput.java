@@ -2,6 +2,8 @@ package footballplayer;
 
 import java.util.Scanner;
 
+import exception.NationalFormatException;
+
 public interface FootballPlayerInput {
 	
 	public int getId();
@@ -18,7 +20,7 @@ public interface FootballPlayerInput {
 
 	public String getNationality();
 
-	public void setNationality(String nationality);
+	public void setNationality(String nationality) throws NationalFormatException;
 
 	public double getWeight();
 
@@ -31,4 +33,16 @@ public interface FootballPlayerInput {
 	public void getUserInput(Scanner input);
 	
 	public void printInfo();
+	
+	public void setPlayerID(Scanner input);
+	
+	public void setPlayerName(Scanner input);
+	
+	public void setPlayerAge(Scanner input);
+	
+	public void setPlayerNationally(Scanner input);
+	
+	public void setPlayerWeight(Scanner input);
+	
+	public void setPlayerHeight(Scanner input);
 }
