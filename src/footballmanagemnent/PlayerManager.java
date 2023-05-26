@@ -1,20 +1,28 @@
 package footballmanagemnent;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
-
 import footballplayer.YouthTeam;
-import footballplayer.FootballPlayer;
 import footballplayer.FootballPlayerInput;
 import footballplayer.FootballTeam;
 import footballplayer.ManchesterUnited;
 import footballplayer.Tottenham;
 
-public class PlayerManager {
+public class PlayerManager implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2206290546272504316L;
+	
 	//개체
 	ArrayList<FootballPlayerInput> players = new ArrayList<FootballPlayerInput>();
-	Scanner input;
+	transient Scanner input;
 	
 	//constructor
 	PlayerManager(Scanner input){

@@ -1,14 +1,27 @@
 package footballmanagemnent;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import log.EventLogger;
+
 public class MenuManagement {
+	static EventLogger logger = new EventLogger("log.txt");
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
-		PlayerManager manager = new PlayerManager(input);
+		PlayerManager manager = getObject("PlayerManager.ser");
+		if(manager == null) {
+			manager = new PlayerManager(input);
+		}
 		
 		selectMenu(input, manager);
+		putObject(manager, "PlayerManager.ser");
 		}
 
 	
@@ -19,13 +32,21 @@ public class MenuManagement {
 				showMenu();
 				num = input.nextInt();
 				switch(num) {
-				case 1: manager.addFootballPlayer();
+				case 1: 
+					manager.addFootballPlayer();
+					logger.log("add a FootballPlayer");
 					break;
-				case 2: manager.deleteFootballPlyaer();
+				case 2: 
+					manager.deleteFootballPlyaer();
+					logger.log("delete a FootballPlayer");
 					break;
-				case 3: manager.editFootballPlayer();
+				case 3: 
+					manager.editFootballPlayer();
+					logger.log("edit a FootballPlayer");
 					break;
-				case 4: manager.viewFootballPlayers();
+				case 4: 
+					manager.viewFootballPlayers();
+					logger.log("view a FootballPlayers");
 					break;
 				default:
 					break;
@@ -52,5 +73,40 @@ public class MenuManagement {
 		System.out.println("===================================");
 	}
 	
+	public static PlayerManager getObject(String filename) {
+		PlayerManager manager = null;
+		try {
+			FileInputStream file = new FileInputStream(filename);
+			ObjectInputStream in = new ObjectInputStream(file);
+			
+			manager = (PlayerManager) in.readObject();
+			
+			in.close();
+			file.close();
+		} catch (FileNotFoundException e) {
+			return manager;
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+		return manager;
+	}
 
+	public static void putObject(PlayerManager manager, String filename) {
+		try {
+			FileOutputStream file = new FileOutputStream(filename);
+			ObjectOutputStream out = new ObjectOutputStream(file);
+			
+			out.writeObject(manager);
+			
+			out.close();
+			file.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 }

@@ -1,10 +1,15 @@
 package footballplayer;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
 import exception.NationalFormatException;
 
-public abstract class FootballPlayer implements FootballPlayerInput {
+public abstract class FootballPlayer implements FootballPlayerInput, Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8415084260562931835L;
 	//선수들의 정보
 	protected FootballTeam footballTeam = FootballTeam.ManchesterUnited;
 	protected int id;
