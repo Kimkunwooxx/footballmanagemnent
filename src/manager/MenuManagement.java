@@ -1,4 +1,4 @@
-package footballmanagemnent;
+package manager;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -9,6 +9,7 @@ import java.io.ObjectOutputStream;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import gui.WindowFrame;
 import log.EventLogger;
 
 public class MenuManagement {
@@ -20,6 +21,7 @@ public class MenuManagement {
 			manager = new PlayerManager(input);
 		}
 		
+		WindowFrame frame = new WindowFrame(manager);
 		selectMenu(input, manager);
 		putObject(manager, "PlayerManager.ser");
 		}

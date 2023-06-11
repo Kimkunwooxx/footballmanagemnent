@@ -1,9 +1,5 @@
-package footballmanagemnent;
+package manager;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.ObjectInputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -149,6 +145,14 @@ public class PlayerManager implements Serializable{
 		for (int i=0; i <players.size(); i++) {
 			players.get(i).printInfo();
 		}
+	}
+	
+	public int size() {
+		return players.size();
+	}
+	
+	public FootballPlayerInput get(int index) {
+		return players.get(index);
 	}
 
 	public  void showEditMenu() {
